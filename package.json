@@ -1,0 +1,12 @@
+{
+  "name": "banco-web",
+  "version": "1.0.0",
+  "description": "Projeto do banco web para seus clientes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cleiber Ziviani",
+  "license": "ISC",
+  "type": "module"
+}
