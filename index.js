@@ -1,19 +1,21 @@
-import {Cliente} from "./Cliente.js"
-import {ContaCorrente} from "./ContaCorrente.js"
+import {Cliente} from "./Cliente.js";
+import { Conta } from "./Conta/Conta.js";
+import {ContaCorrente} from "./Conta/ContaCorrente.js";
+import { ContaPoupanca } from "./Conta/ContaPoupanca.js";
+import { ContaSalario } from "./Conta/ContaSalario.js";
 
 
 const cliente1 = new Cliente('Cleiber Ziviani', '302712290-55');
-const cliente2 = new Cliente('Alice Aguiar','889105551-43');
 
-const conta1 = new ContaCorrente(1001, '31624-0', cliente1);
-conta1.depositar(300);
-conta1.sacar(100);
+const contaCorrente = new ContaCorrente(0, cliente1, 1001, '31624-0');
+contaCorrente.depositar(500);
+contaCorrente.sacar(100);
 
-const conta2 = new ContaCorrente(1001, '13254-6', cliente2);
-conta2.depositar(200);
-conta2.sacar(100);
+const contaPoupanca = new ContaPoupanca(50, cliente1, 1001, '31624-0');
+contaPoupanca.sacar(10);
 
-conta1.tranferir(conta2, 110, cliente1.nome);
-conta2.tranferir(conta1, 23, cliente2.nome);
+const contasalario = new ContaSalario(cliente1);
+contasalario.depositar(100);
+contasalario.sacar(10);
 
-console.log(`${cliente1.nome} -- Agência: ${conta1.agencia} -- Conta: ${conta1.conta} -- Saldo: R$ ${conta1.saldo.toFixed(2)}\n${cliente2.nome} -- Agência: ${conta2.agencia} -- Conta: ${conta2.conta} -- Saldo: R$ ${conta2.saldo.toFixed(2)}.`);
+console.log(contasalario)

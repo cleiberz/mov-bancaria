@@ -1,11 +1,17 @@
-import { Cliente } from "./Cliente.js";
+//Classe abstrata
 
-export class ContaCorrente{
-    static numberContas = 0;
-    agencia;
-    conta;
-    _cliente;
-    _saldo = 0;
+export class Conta{
+    constructor(saldoInicial,cliente,agencia, conta ){
+        if (this.constructor == Conta) {
+            throw new Error('Você não deveria instanciar um objeto do tipo Conta diretamente! Pois essa é uma classe abstrata.');
+        }
+        this._saldo = saldoInicial;
+        this._cliente = cliente;
+        this._agencia = agencia;
+        this._conta = conta;
+        
+        
+    }
 
     set cliente(novoValor){
         if(novoValor instanceof Cliente){
@@ -19,14 +25,6 @@ export class ContaCorrente{
     get saldo() {
         return this._saldo;
     }
-
-    constructor(agencia, conta, cliente){
-        this.agencia = agencia;
-        this.conta = conta;
-        this.cliente = cliente;
-        ContaCorrente.numberContas += 1;
-    }
-
     sacar(valor){
         if (valor <= this._saldo) {
             this._saldo -= valor;
@@ -41,8 +39,7 @@ export class ContaCorrente{
         } else {
             this._saldo += valor;
         }
-        } 
-    
+        }     
     tranferir(conta, valor, cliente) {
         if (valor <= 0) {
             console.log('Transferência não permitida, informe um valor maior que zero!\n');
