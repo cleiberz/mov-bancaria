@@ -5,4 +5,4 @@ Movimentação com depósitos, saques e transferências.
 Verificação de saldo.
 Verificação da quantidade de contas cadastradas.
 
-Utilizando classes, módulos, set, get, static, construtores, classe abstrata, herança, etc.
+Utilizando classes, módulos, set, get, static, construtores, classe abstrata, herança, polimorfismo, etc.

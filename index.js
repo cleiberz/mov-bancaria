@@ -2,8 +2,8 @@ import {Cliente} from "./Cliente.js";
 import {ContaCorrente} from "./Conta/ContaCorrente.js";
 import { ContaPoupanca } from "./Conta/ContaPoupanca.js";
 import { ContaSalario } from "./Conta/ContaSalario.js";
-import { Gerente } from "./Funcionario/Gerente.js";
-import { Diretor } from "./Funcionario/Diretor.js";
+import { Gerente } from "./Usuario/Gerente.js";
+import { Diretor } from "./Usuario/Diretor.js";
 import { SistemaAutenticacao } from "./SistemaAutenticacao.js";
 
 // Clientes e Contas
@@ -26,7 +26,12 @@ const estaLogadoDiretor = SistemaAutenticacao.login(diretor, '123456');
 
 const gerente = new Gerente('Nalva Ziviani', 6000, '889104556-00');
 gerente.cadastrarSenha('abc123');
-const estaLogado = SistemaAutenticacao.login(gerente, 'ab123');
+const gerenteEstaLogado = SistemaAutenticacao.login(gerente, 'abc23');
+const diretorEstaLogado = SistemaAutenticacao.login(diretor, '12356');
 
-console.log(estaLogado);
+const cliente = new Cliente('João Filipe', '34543453-00');
+cliente.cadastrarSenha('junior');
+const clienteEstaLogado = SistemaAutenticacao.login(cliente, 'junior');
+
+console.log(gerenteEstaLogado, diretorEstaLogado, clienteEstaLogado);
 
